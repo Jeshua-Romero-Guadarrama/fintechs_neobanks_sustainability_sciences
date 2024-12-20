@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Fintech y Sustentabilidad</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Formulario de contacto para el proyecto Fintech y Sustentabilidad">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="images/logo.png" alt="Logo del Proyecto" id="logo">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="about.html">Sobre Nosotros</a></li>
+                <li><a href="fintechs.html">Fintech</a></li>
+                <li><a href="neobanks.html">Neobancos</a></li>
+                <li><a href="sustainability_sciences.html">Sustentabilidad</a></li>
+                <li><a href="resources.html">Recursos</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="contact">
+            <h1>Contacto</h1>
+            <p>Si tienes alguna pregunta o comentario, por favor completa el siguiente formulario:</p>
+            
+            <form action="https://formspree.io/f/your-form-id" method="POST">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="_replyto" required>
+
+                <label for="message">Mensaje:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Enviar</button>
+            </form>
+            
+            <img src="images/contact.jpg" alt="Imagen de Contacto">
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Fintech y Sustentabilidad. Todos los derechos reservados.</p>
+        <a href="contact.html">Contacto</a>
+    </footer>
+</body>
+</html>

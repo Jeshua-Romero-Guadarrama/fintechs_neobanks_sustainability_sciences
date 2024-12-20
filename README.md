@@ -8,12 +8,12 @@ Este proyecto tiene como objetivo crear una página web informativa sobre el imp
 
 - **Página Inicial:** Introducción al proyecto y resumen de los temas principales.
 - **Subpáginas:**
-  - **Sobre Nosotros:** Información sobre el equipo y la misión.
+  - **Sobre Mi:** Información sobre mi.
   - **Fintech:** Detalles sobre las innovaciones en fintech.
   - **Neobancos:** Explicación de qué son los neobancos y sus ventajas.
   - **Sustentabilidad:** Cómo las finanzas contribuyen a la sustentabilidad.
   - **Recursos:** Enlaces y documentos útiles.
-  - **Contacto:** Formulario para enviar mensajes al equipo.
+  - **Contacto:** Formulario para enviar mensajes.
 
 ## Tecnologías Utilizadas
 

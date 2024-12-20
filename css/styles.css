@@ -1,4 +1,3 @@
-/* Reset de estilos básicos */
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +12,6 @@ body {
     padding-bottom: 20px;
 }
 
-/* Estilos del encabezado y navegación */
 header {
     background-color: #1f3c88;
     color: #fff;
@@ -77,12 +75,14 @@ h1, h2, h3 {
     color: #1f3c88;
     margin-bottom: 15px;
     text-align: center;
+    font-weight: bold;
 }
 
 p {
     margin-bottom: 20px;
     color: #555;
     text-align: justify;
+    line-height: 1.8;
 }
 
 img {
@@ -91,6 +91,11 @@ img {
     margin: 20px 0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+img:hover {
+    transform: scale(1.05);
 }
 
 ul, ol {
@@ -98,6 +103,7 @@ ul, ol {
     margin-bottom: 20px;
     padding-left: 20px;
     color: #555;
+    line-height: 1.6;
 }
 
 ul li, ol li {
@@ -125,13 +131,16 @@ button, .btn {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+    font-weight: bold;
     transition: background-color 0.3s, transform 0.2s;
     text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 button:hover, .btn:hover {
     background-color: #4c6ef5;
     transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilos del formulario de contacto */
@@ -144,6 +153,7 @@ form {
 form label {
     font-weight: bold;
     color: #1f3c88;
+    margin-bottom: 5px;
 }
 
 form input, form textarea {
@@ -151,12 +161,13 @@ form input, form textarea {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 form input:focus, form textarea:focus {
     border-color: #4c6ef5;
     outline: none;
+    box-shadow: 0 4px 8px rgba(76, 110, 245, 0.2);
 }
 
 form button {
@@ -166,11 +177,13 @@ form button {
     border-radius: 8px;
     cursor: pointer;
     padding: 12px;
-    transition: background-color 0.3s;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 form button:hover {
     background-color: #4c6ef5;
+    transform: scale(1.05);
 }
 
 /* Estilos del pie de página */
@@ -187,6 +200,7 @@ footer {
 footer a {
     color: #4c6ef5;
     text-decoration: underline;
+    font-weight: bold;
     transition: color 0.3s;
 }
 
@@ -194,7 +208,51 @@ footer a:hover {
     color: #eef2f7;
 }
 
-/* Efectos de transición */
+/* Cards para mostrar contenido */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card h3 {
+    color: #1f3c88;
+    margin-bottom: 10px;
+}
+
+/* Estilos de tablas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #1f3c88;
+    color: #fff;
+}
+
+table tr:hover {
+    background-color: #f4f4f4;
+}
+
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
@@ -203,5 +261,17 @@ footer a:hover {
 
     nav ul li {
         margin: 10px 0;
+    }
+
+    main {
+        width: 95%;
+    }
+
+    img {
+        margin: 10px 0;
+    }
+
+    table {
+        font-size: 14px;
     }
 }

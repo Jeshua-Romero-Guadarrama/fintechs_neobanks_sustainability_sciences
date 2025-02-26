@@ -1,23 +1,105 @@
+/* 
+  =============================================================
+    1. VARIABLES Y RESETEO BÁSICO
+  =============================================================
+*/
+:root {
+    /* Colores principales */
+    --color-primary: #1f3c88;    /* Azul oscuro principal */
+    --color-primary-light: #4c6ef5; 
+    --color-secondary: #eef2f7;  /* Fondo claro */
+    --color-text-base: #333;     /* Texto base */
+    --color-text-alt: #555;      /* Texto secundario */
+    --color-white: #fff;
+
+    /* Sombras y transiciones */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition-default: 0.3s ease;
+
+    /* Tipografía */
+    --font-base: 'Poppins', Arial, sans-serif;
+    --font-size-base: 16px;
+
+    /* Espacios y bordes */
+    --border-radius: 10px;
+    --spacing-default: 20px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/*
+  =============================================================
+    2. ESTILOS GLOBALES
+  =============================================================
+*/
 body {
-    font-family: 'Poppins', Arial, sans-serif;
+    font-family: var(--font-base);
+    font-size: var(--font-size-base);
     line-height: 1.6;
-    background-color: #eef2f7;
-    color: #333;
-    padding-bottom: 20px;
+    background-color: var(--color-secondary);
+    color: var(--color-text-base);
+    padding-bottom: var(--spacing-default);
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    margin: var(--spacing-default) 0;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-default);
+}
+
+img:hover {
+    transform: scale(1.05);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color var(--transition-default);
+}
+
+a:hover {
+    color: var(--color-primary-light);
+}
+
+p {
+    margin-bottom: var(--spacing-default);
+    color: var(--color-text-alt);
+    text-align: justify;
+    line-height: 1.8;
+}
+
+ul, ol {
+    margin-bottom: var(--spacing-default);
+    padding-left: var(--spacing-default);
+    color: var(--color-text-alt);
+    line-height: 1.6;
+}
+
+ul li, ol li {
+    margin-bottom: 10px;
+}
+
+
+/*
+  =============================================================
+    3. ENCABEZADO Y NAVEGACIÓN
+  =============================================================
+*/
 header {
-    background-color: #1f3c88;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-white);
     padding: 15px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
 }
 
 nav {
@@ -26,6 +108,12 @@ nav {
     align-items: center;
     width: 90%;
     margin: auto;
+}
+
+#logo {
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
 }
 
 nav ul {
@@ -38,33 +126,32 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--color-white);
     text-decoration: none;
     font-weight: bold;
     padding: 10px 15px;
-    transition: background-color 0.3s, color 0.3s;
     border-radius: 5px;
+    transition: background-color var(--transition-default), color var(--transition-default);
 }
 
 nav ul li a:hover {
-    background-color: #4c6ef5;
-    color: #eef2f7;
+    background-color: var(--color-primary-light);
+    color: var(--color-secondary);
 }
 
-#logo {
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
-/* Estilos del contenido principal */
+/*
+  =============================================================
+    4. CONTENIDO PRINCIPAL
+  =============================================================
+*/
 main {
     width: 90%;
     margin: 30px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: var(--spacing-default);
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 section {
@@ -72,78 +159,45 @@ section {
 }
 
 h1, h2, h3 {
-    color: #1f3c88;
+    color: var(--color-primary);
     margin-bottom: 15px;
+    font-weight: bold;
     text-align: center;
-    font-weight: bold;
 }
 
-p {
-    margin-bottom: 20px;
-    color: #555;
-    text-align: justify;
-    line-height: 1.8;
-}
 
-img {
-    max-width: 100%;
-    height: auto;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
-}
-
-img:hover {
-    transform: scale(1.05);
-}
-
-ul, ol {
-    margin-left: 20px;
-    margin-bottom: 20px;
-    padding-left: 20px;
-    color: #555;
-    line-height: 1.6;
-}
-
-ul li, ol li {
-    margin-bottom: 10px;
-}
-
-a {
-    color: #1f3c88;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-a:hover {
-    color: #4c6ef5;
-}
-
-/* Botones personalizados */
+/*
+  =============================================================
+    5. BOTONES Y ELEMENTOS INTERACTIVOS
+  =============================================================
+*/
 button, .btn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #1f3c88;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-white);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.2s;
     text-align: center;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    transition: background-color var(--transition-default), transform 0.2s;
 }
 
 button:hover, .btn:hover {
-    background-color: #4c6ef5;
+    background-color: var(--color-primary-light);
     transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
 }
 
-/* Estilos del formulario de contacto */
+
+/*
+  =============================================================
+    6. FORMULARIOS (CONTACTO, ETC.)
+  =============================================================
+*/
 form {
     display: flex;
     flex-direction: column;
@@ -152,7 +206,7 @@ form {
 
 form label {
     font-weight: bold;
-    color: #1f3c88;
+    color: var(--color-primary);
     margin-bottom: 5px;
 }
 
@@ -161,61 +215,73 @@ form input, form textarea {
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s, box-shadow 0.3s;
+    transition: border-color var(--transition-default), box-shadow var(--transition-default);
+    font-family: var(--font-base);
 }
 
 form input:focus, form textarea:focus {
-    border-color: #4c6ef5;
+    border-color: var(--color-primary-light);
     outline: none;
     box-shadow: 0 4px 8px rgba(76, 110, 245, 0.2);
 }
 
 form button {
-    background-color: #1f3c88;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-white);
     border: none;
     border-radius: 8px;
     cursor: pointer;
     padding: 12px;
     font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color var(--transition-default), transform var(--transition-default);
 }
 
 form button:hover {
-    background-color: #4c6ef5;
+    background-color: var(--color-primary-light);
     transform: scale(1.05);
 }
 
-/* Estilos del pie de página */
+
+/*
+  =============================================================
+    7. PIE DE PÁGINA
+  =============================================================
+*/
 footer {
-    background-color: #1f3c88;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-white);
     text-align: center;
     padding: 15px 0;
     margin-top: 20px;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
 
 footer a {
-    color: #4c6ef5;
+    color: var(--color-primary-light);
     text-decoration: underline;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color var(--transition-default);
 }
 
 footer a:hover {
-    color: #eef2f7;
+    color: var(--color-secondary);
 }
 
-/* Cards para mostrar contenido */
+
+/*
+  =============================================================
+    8. ELEMENTOS ESPECÍFICOS
+       (Cards, tablas, etc.)
+  =============================================================
+*/
 .card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    padding: var(--spacing-default);
+    margin-bottom: var(--spacing-default);
+    transition: transform var(--transition-default), box-shadow var(--transition-default);
 }
 
 .card:hover {
@@ -224,18 +290,17 @@ footer a:hover {
 }
 
 .card h3 {
-    color: #1f3c88;
+    color: var(--color-primary);
     margin-bottom: 10px;
 }
 
-/* Estilos de tablas */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: var(--spacing-default) 0;
+    background-color: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 table th, table td {
@@ -245,15 +310,22 @@ table th, table td {
 }
 
 table th {
-    background-color: #1f3c88;
-    color: #fff;
+    background-color: var(--color-primary);
+    color: var(--color-white);
 }
 
 table tr:hover {
     background-color: #f4f4f4;
 }
 
+
+/*
+  =============================================================
+    9. RESPONSIVE DESIGN
+  =============================================================
+*/
 @media (max-width: 768px) {
+    /* Ajustes del menú */
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -263,15 +335,19 @@ table tr:hover {
         margin: 10px 0;
     }
 
+    /* Ajustes del contenido principal */
     main {
         width: 95%;
+        margin: 20px auto;
     }
 
-    img {
-        margin: 10px 0;
-    }
-
+    /* Ajustes de tablas en pantallas pequeñas */
     table {
         font-size: 14px;
+    }
+
+    /* Otros ajustes para imágenes y secciones */
+    img {
+        margin: 10px 0;
     }
 }

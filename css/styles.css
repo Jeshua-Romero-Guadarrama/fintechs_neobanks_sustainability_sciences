@@ -5,11 +5,11 @@
 */
 :root {
     /* Colores principales */
-    --color-primary: #1f3c88;    /* Azul oscuro principal */
+    --color-primary: #1f3c88; /* Azul oscuro principal */
     --color-primary-light: #4c6ef5; 
-    --color-secondary: #eef2f7;  /* Fondo claro */
-    --color-text-base: #333;     /* Texto base */
-    --color-text-alt: #555;      /* Texto secundario */
+    --color-secondary: #eef2f7; /* Fondo claro */
+    --color-text-base: #333; /* Texto base */
+    --color-text-alt: #555;  /* Texto secundario */
     --color-white: #fff;
 
     /* Sombras y transiciones */
@@ -23,11 +23,11 @@
     /* Espacios y bordes */
     --border-radius: 10px;
     --spacing-default: 20px;
+
+    /* Nuevas variables para responsividad */
+    --max-width-container: 1200px; /* Ancho máximo de nuestro contenedor principal */
 }
 
-/* 
-   Aplicamos varias propiedades globales en 'html' para que los elementos hijos las hereden si no se sobrescriben.
-*/
 html {
     font-family: var(--font-base);
     line-height: 1.6;
@@ -45,7 +45,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    /* El color y la tipografía podrían heredarse de <html>, pero se mantienen para asegurar el override. */
+    /* El color y la tipografía podrían heredarse de <html>, pero se mantienen para asegurar override. */
 }
 
 
@@ -85,14 +85,16 @@ p {
     line-height: 1.8;
 }
 
-ul, ol {
+ul,
+ol {
     margin-bottom: var(--spacing-default);
     padding-left: var(--spacing-default);
     color: var(--color-text-alt);
     line-height: 1.6;
 }
 
-ul li, ol li {
+ul li,
+ol li {
     margin-bottom: 10px;
 }
 
@@ -143,6 +145,7 @@ nav {
     align-items: center;
     width: 90%;
     margin: auto;
+    max-width: var(--max-width-container);
 }
 
 #logo {
@@ -192,6 +195,9 @@ main {
     background-color: var(--color-white);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+
+    /* Aseguramos que no supere el ancho máximo */
+    max-width: var(--max-width-container);
 }
 
 section {
@@ -203,7 +209,9 @@ section {
     width: 100%;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     color: var(--color-primary);
     margin-bottom: 15px;
     font-weight: bold;
@@ -376,7 +384,7 @@ table tr:hover {
 
 /*
   =============================================================
-    9. UTILIDADES EXTRA - POSICIONAMIENTOS & FLEX AVANZADO
+    9. UTILIDADES EXTRA: POSICIONAMIENTO, FLEX AVANZADO, ENTRE OTROS
   =============================================================
 */
 
@@ -433,9 +441,7 @@ table tr:hover {
     align-items: center;
 }
 
-/*
-  Una clase contenedora que use flexbox para crear un layout de columnas
-*/
+/* Layout de dos columnas */
 .two-column-layout {
     display: flex;
     flex-direction: row;
@@ -444,7 +450,7 @@ table tr:hover {
     gap: 2rem;
 }
 
-/* Tarjeta con posición especial */
+/* Tarjeta destacada con posición especial */
 .card.featured {
     position: relative;
     border: 2px solid var(--color-primary-light);
@@ -468,11 +474,40 @@ table tr:hover {
 
 /*
   =============================================================
-    10. RESPONSIVE DESIGN
+    10. MEDIA QUERIES AVANZADAS (RESPONSIVE DESIGN)
   =============================================================
 */
+
+/* 
+   - Extra small devices (max-width: 575px)
+   - Small devices (max-width: 768px)
+   - Medium devices (max-width: 992px)
+   - Large devices (max-width: 1200px)
+*/
+
+/* Para dispositivos muy pequeños (<= 575px) */
+@media (max-width: 575px) {
+    .two-column-layout {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    nav ul li a {
+        padding: 8px 10px;
+    }
+}
+
+/* Para pantallas hasta 768px */
 @media (max-width: 768px) {
-    /* Ajustes del menú */
     nav ul {
         flex-direction: column;
         align-items: center;
@@ -482,25 +517,62 @@ table tr:hover {
         margin: 10px 0;
     }
 
-    /* Ajustes del contenido principal */
     main {
         width: 95%;
         margin: 20px auto;
     }
 
-    /* Ajustes de tablas en pantallas pequeñas */
     table {
         font-size: 14px;
     }
 
-    /* Otros ajustes para imágenes y secciones */
     img {
         margin: 10px 0;
     }
 
-    /* Ajustes para layout de 2 columnas en móvil */
     .two-column-layout {
         flex-direction: column;
         gap: 1rem;
+    }
+}
+
+/* Para pantallas hasta 992px */
+@media (max-width: 992px) {
+    nav {
+        width: 95%;
+    }
+
+    .flex-row,
+    .flex-wrap {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .two-column-layout {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+    }
+}
+
+/* Para pantallas hasta 1200px */
+@media (max-width: 1200px) {
+    nav {
+        width: 95%;
+    }
+
+    .two-column-layout {
+        justify-content: space-between;
+    }
+}
+
+/* 
+   Imagen responsiva con max-height para que no ocupe demasiado en pantallas pequeñitas.
+*/
+@media (max-width: 576px) {
+    img.responsive-small {
+        max-height: 200px; /* Ajusta la altura máxima de la imagen */
+        object-fit: cover;
     }
 }

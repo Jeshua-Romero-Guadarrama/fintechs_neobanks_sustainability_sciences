@@ -26,7 +26,7 @@
 }
 
 /* 
-   Aplicamos varias propiedades globales en 'html' para que los elementos hijos las hereden por defecto si no se sobrescriben.
+   Aplicamos varias propiedades globales en 'html' para que los elementos hijos las hereden si no se sobrescriben.
 */
 html {
     font-family: var(--font-base);
@@ -45,7 +45,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    /* El color y la tipografía podrían heredarse de html, pero se mantienen para asegurar el override. */
+    /* El color y la tipografía podrían heredarse de <html>, pero se mantienen para asegurar el override. */
 }
 
 
@@ -96,6 +96,7 @@ ul li, ol li {
     margin-bottom: 10px;
 }
 
+
 /*
   =============================================================
     2.1. ELEMENTOS QUE DEMUESTRAN HERENCIA
@@ -111,7 +112,7 @@ blockquote {
 }
 
 .heading-subtitle {
-    font-size: 1.125rem; /* 18px aproximadamente */
+    font-size: 1.125rem; /* ~18px */
     color: inherit;      /* Hereda color del contenedor */
     margin: 10px 0;
     text-align: center;
@@ -130,7 +131,7 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
 
-    /* Usamos flexbox para centrar elementos dentro del header */
+    /* Flexbox para alinear elementos dentro del header */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -180,7 +181,7 @@ nav ul li a:hover {
   =============================================================
 */
 main {
-    /* Agregamos flexbox para organizar mejor el contenido */
+    /* Flexbox para organizar contenido verticalmente */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -194,9 +195,7 @@ main {
 }
 
 section {
-    /* 
-      Mantener la estructura, pero ahora con flexbox para centrar contenido y alinear elementos internamente
-    */
+    /* Flexbox para centrar contenido y alinear elementos internamente */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -217,7 +216,8 @@ h1, h2, h3 {
     5. BOTONES Y ELEMENTOS INTERACTIVOS
   =============================================================
 */
-button, .btn {
+button,
+.btn {
     display: inline-block;
     padding: 10px 20px;
     background-color: var(--color-primary);
@@ -232,7 +232,8 @@ button, .btn {
     transition: background-color var(--transition-default), transform 0.2s;
 }
 
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
     background-color: var(--color-primary-light);
     transform: scale(1.05);
     box-shadow: var(--box-shadow);
@@ -256,16 +257,18 @@ form label {
     margin-bottom: 5px;
 }
 
-form input, form textarea {
+form input,
+form textarea {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transition: border-color var(--transition-default), box-shadow var(--transition-default);
-    font-family: var(--font-base); /* Aplica la misma familia para consistencia */
+    font-family: var(--font-base); /* Consistencia tipográfica */
 }
 
-form input:focus, form textarea:focus {
+form input:focus,
+form textarea:focus {
     border-color: var(--color-primary-light);
     outline: none;
     box-shadow: 0 4px 8px rgba(76, 110, 245, 0.2);
@@ -279,7 +282,8 @@ form button {
     cursor: pointer;
     padding: 12px;
     font-weight: bold;
-    transition: background-color var(--transition-default), transform var(--transition-default);
+    transition: background-color var(--transition-default),
+                transform var(--transition-default);
 }
 
 form button:hover {
@@ -294,7 +298,7 @@ form button:hover {
   =============================================================
 */
 footer {
-    /* Se usa flexbox para centrar el contenido del footer */
+    /* Flexbox para centrar el contenido del footer */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -353,7 +357,8 @@ table {
     box-shadow: var(--box-shadow);
 }
 
-table th, table td {
+table th,
+table td {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -371,7 +376,99 @@ table tr:hover {
 
 /*
   =============================================================
-    9. RESPONSIVE DESIGN
+    9. UTILIDADES EXTRA - POSICIONAMIENTOS & FLEX AVANZADO
+  =============================================================
+*/
+
+/* Clases de posicionamiento */
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(20%, 20%);
+}
+
+.position-fixed {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
+
+.z-index-high {
+    z-index: 9999;
+}
+
+/* Clases de flex avanzadas */
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.flex-center-all {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+  Una clase contenedora que use flexbox para crear un layout de columnas
+*/
+.two-column-layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+/* Tarjeta con posición especial */
+.card.featured {
+    position: relative;
+    border: 2px solid var(--color-primary-light);
+    overflow: hidden;
+}
+
+/* Etiqueta con posición absoluta dentro de la tarjeta */
+.card.featured::before {
+    content: "Destacado";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--color-primary-light);
+    color: var(--color-white);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+
+/*
+  =============================================================
+    10. RESPONSIVE DESIGN
   =============================================================
 */
 @media (max-width: 768px) {
@@ -399,5 +496,11 @@ table tr:hover {
     /* Otros ajustes para imágenes y secciones */
     img {
         margin: 10px 0;
+    }
+
+    /* Ajustes para layout de 2 columnas en móvil */
+    .two-column-layout {
+        flex-direction: column;
+        gap: 1rem;
     }
 }

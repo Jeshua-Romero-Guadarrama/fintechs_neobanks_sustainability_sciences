@@ -26,8 +26,7 @@
 }
 
 /* 
-   Aplicamos varias propiedades globales en 'html' para que los
-   elementos hijos las hereden por defecto si no se sobrescriben.
+   Aplicamos varias propiedades globales en 'html' para que los elementos hijos las hereden por defecto si no se sobrescriben.
 */
 html {
     font-family: var(--font-base);
@@ -44,12 +43,9 @@ html {
 }
 
 body {
-    /* Aunque mucho ya lo hereda de <html>, aquí definimos
-       márgenes y padding para mantener el patrón global */
     margin: 0;
     padding: 0;
-    /* El color y la tipografía podrían heredarse de html,
-       pero se mantienen si queremos asegurarnos de override. */
+    /* El color y la tipografía podrían heredarse de html, pero se mantienen para asegurar el override. */
 }
 
 
@@ -105,11 +101,6 @@ ul li, ol li {
     2.1. ELEMENTOS QUE DEMUESTRAN HERENCIA
   =============================================================
 */
-
-/* 
-   blockquote "hereda" color y tipografía de sus padres.
-   Al no redefinir font-family ni color, se usan los de html/body.
-*/
 blockquote {
     margin: var(--spacing-default) 0;
     padding: var(--spacing-default);
@@ -119,10 +110,6 @@ blockquote {
     color: inherit; /* Hereda el color del padre */
 }
 
-/*
-   Un subtítulo que hereda las tipografías y el color del contenedor
-   en el que se encuentre. Solo ajustamos el tamaño y el margen.
-*/
 .heading-subtitle {
     font-size: 1.125rem; /* 18px aproximadamente */
     color: inherit;      /* Hereda color del contenedor */
@@ -142,6 +129,11 @@ header {
     padding: 15px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
+
+    /* Usamos flexbox para centrar elementos dentro del header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 nav {
@@ -188,6 +180,11 @@ nav ul li a:hover {
   =============================================================
 */
 main {
+    /* Agregamos flexbox para organizar mejor el contenido */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     width: 90%;
     margin: 30px auto;
     padding: var(--spacing-default);
@@ -197,7 +194,14 @@ main {
 }
 
 section {
+    /* 
+      Mantener la estructura, pero ahora con flexbox para centrar contenido y alinear elementos internamente
+    */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 40px;
+    width: 100%;
 }
 
 h1, h2, h3 {
@@ -237,7 +241,7 @@ button:hover, .btn:hover {
 
 /*
   =============================================================
-    6. FORMULARIOS (CONTACTO, ETC.)
+    6. FORMULARIOS
   =============================================================
 */
 form {
@@ -290,6 +294,11 @@ form button:hover {
   =============================================================
 */
 footer {
+    /* Se usa flexbox para centrar el contenido del footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     background-color: var(--color-primary);
     color: var(--color-white);
     text-align: center;
@@ -314,7 +323,6 @@ footer a:hover {
 /*
   =============================================================
     8. ELEMENTOS ESPECÍFICOS
-       (Cards, tablas, etc.)
   =============================================================
 */
 .card {

@@ -4,575 +4,1451 @@
   =============================================================
 */
 :root {
-    /* Colores principales */
-    --color-primary: #1f3c88; /* Azul oscuro principal */
-    --color-primary-light: #4c6ef5; 
-    --color-secondary: #eef2f7; /* Fondo claro */
-    --color-text-base: #333; /* Texto base */
-    --color-text-alt: #555;  /* Texto secundario */
-    --color-white: #fff;
+  /* Colores principales */
+  --color-primary: #1f3c88;      /* Azul oscuro principal */
+  --color-primary-light: #4c6ef5; 
+  --color-secondary: #eef2f7;    /* Fondo claro */
+  --color-text-base: #333;       /* Texto base */
+  --color-text-alt: #555;        /* Texto secundario */
+  --color-white: #fff;
 
-    /* Sombras y transiciones */
-    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    --transition-default: 0.3s ease;
+  /* Sombras y transiciones */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition-default: 0.3s ease;
 
-    /* Tipografía */
-    --font-base: 'Poppins', Arial, sans-serif;
-    --font-size-base: 16px;
+  /* Tipografía */
+  --font-base: 'Poppins', Arial, sans-serif;
+  --font-size-base: 16px;
 
-    /* Espacios y bordes */
-    --border-radius: 10px;
-    --spacing-default: 20px;
+  /* Espacios y bordes */
+  --border-radius: 10px;
+  --spacing-default: 20px;
 
-    /* Nuevas variables para responsividad */
-    --max-width-container: 1200px; /* Ancho máximo de nuestro contenedor principal */
+  /* Variables para responsividad */
+  --max-width-container: 1200px; /* Ancho máximo del contenedor principal */
 }
 
 html {
-    font-family: var(--font-base);
-    line-height: 1.6;
-    background-color: var(--color-secondary);
-    color: var(--color-text-base);
-    font-size: var(--font-size-base);
+  font-family: var(--font-base);
+  line-height: 1.6;
+  background-color: var(--color-secondary);
+  color: var(--color-text-base);
+  font-size: var(--font-size-base);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    /* El color y la tipografía podrían heredarse de <html>, pero se mantienen para asegurar override. */
+  margin: 0;
+  padding: 0;
+  /* El color y la tipografía podrían heredarse de <html>, pero se mantienen para asegurar override. */
 }
 
 
 /*
-  =============================================================
-    2. ESTILOS GLOBALES
-  =============================================================
+=============================================================
+  2. ESTILOS GLOBALES
+=============================================================
 */
 img {
-    max-width: 100%;
-    height: auto;
-    margin: var(--spacing-default) 0;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    transition: transform var(--transition-default);
+  max-width: 100%;
+  height: auto;
+  margin: var(--spacing-default) 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-default);
 }
 
 img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 a {
-    color: var(--color-primary);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color var(--transition-default);
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color var(--transition-default);
 }
 
 a:hover {
-    color: var(--color-primary-light);
+  color: var(--color-primary-light);
 }
 
 p {
-    margin-bottom: var(--spacing-default);
-    color: var(--color-text-alt);
-    text-align: justify;
-    line-height: 1.8;
+  margin-bottom: var(--spacing-default);
+  color: var(--color-text-alt);
+  text-align: justify;
+  line-height: 1.8;
 }
 
 ul,
 ol {
-    margin-bottom: var(--spacing-default);
-    padding-left: var(--spacing-default);
-    color: var(--color-text-alt);
-    line-height: 1.6;
+  margin-bottom: var(--spacing-default);
+  padding-left: var(--spacing-default);
+  color: var(--color-text-alt);
+  line-height: 1.6;
 }
 
 ul li,
 ol li {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 
 /*
-  =============================================================
-    2.1. ELEMENTOS QUE DEMUESTRAN HERENCIA
-  =============================================================
+=============================================================
+  2.1. ELEMENTOS QUE DEMUESTRAN HERENCIA
+=============================================================
 */
 blockquote {
-    margin: var(--spacing-default) 0;
-    padding: var(--spacing-default);
-    background-color: #fdfdfd;
-    border-left: 4px solid var(--color-primary);
-    font-style: italic;
-    color: inherit; /* Hereda el color del padre */
+  margin: var(--spacing-default) 0;
+  padding: var(--spacing-default);
+  background-color: #fdfdfd;
+  border-left: 4px solid var(--color-primary);
+  font-style: italic;
+  color: inherit;      /* Hereda el color del padre */
 }
 
 .heading-subtitle {
-    font-size: 1.125rem; /* ~18px */
-    color: inherit;      /* Hereda color del contenedor */
-    margin: 10px 0;
-    text-align: center;
+  font-size: 1.125rem; /* ~18px */
+  color: inherit;      /* Hereda color del contenedor */
+  margin: 10px 0;
+  text-align: center;
 }
 
 
 /*
-  =============================================================
-    3. ENCABEZADO Y NAVEGACIÓN
-  =============================================================
+=============================================================
+  3. ENCABEZADO Y NAVEGACIÓN
+=============================================================
 */
 header {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    padding: 15px 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 15px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
 
-    /* Flexbox para alinear elementos dentro del header */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* Flexbox para alinear elementos dentro del header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: auto;
-    max-width: var(--max-width-container);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  max-width: var(--max-width-container);
 }
 
 #logo {
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: var(--box-shadow);
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
+  list-style: none;
+  display: flex;
 }
 
 nav ul li {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 nav ul li a {
-    color: var(--color-white);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 10px 15px;
-    border-radius: 5px;
-    transition: background-color var(--transition-default), color var(--transition-default);
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color var(--transition-default), color var(--transition-default);
 }
 
 nav ul li a:hover {
-    background-color: var(--color-primary-light);
-    color: var(--color-secondary);
+  background-color: var(--color-primary-light);
+  color: var(--color-secondary);
 }
 
 
 /*
-  =============================================================
-    4. CONTENIDO PRINCIPAL
-  =============================================================
+=============================================================
+  4. CONTENIDO PRINCIPAL
+=============================================================
 */
 main {
-    /* Flexbox para organizar contenido verticalmente */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* Flexbox para organizar contenido verticalmente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    width: 90%;
-    margin: 30px auto;
-    padding: var(--spacing-default);
-    background-color: var(--color-white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+  width: 90%;
+  margin: 30px auto;
+  padding: var(--spacing-default);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 
-    /* Aseguramos que no supere el ancho máximo */
-    max-width: var(--max-width-container);
+  /* Asegurar que no supere el ancho máximo */
+  max-width: var(--max-width-container);
 }
 
 section {
-    /* Flexbox para centrar contenido y alinear elementos internamente */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
-    width: 100%;
+  /* Flexbox para centrar contenido y alinear elementos internamente */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 100%;
 }
 
 h1,
 h2,
 h3 {
-    color: var(--color-primary);
-    margin-bottom: 15px;
-    font-weight: bold;
-    text-align: center;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-align: center;
 }
 
 
 /*
-  =============================================================
-    5. BOTONES Y ELEMENTOS INTERACTIVOS
-  =============================================================
+=============================================================
+  5. BOTONES Y ELEMENTOS INTERACTIVOS
+=============================================================
 */
 button,
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    transition: background-color var(--transition-default), transform 0.2s;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  transition: background-color var(--transition-default), transform 0.2s;
 }
 
 button:hover,
 .btn:hover {
-    background-color: var(--color-primary-light);
-    transform: scale(1.05);
-    box-shadow: var(--box-shadow);
+  background-color: var(--color-primary-light);
+  transform: scale(1.05);
+  box-shadow: var(--box-shadow);
 }
 
 
 /*
-  =============================================================
-    6. FORMULARIOS
-  =============================================================
+=============================================================
+  6. FORMULARIOS
+=============================================================
 */
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 form label {
-    font-weight: bold;
-    color: var(--color-primary);
-    margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--color-primary);
+  margin-bottom: 5px;
 }
 
 form input,
 form textarea {
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: border-color var(--transition-default), box-shadow var(--transition-default);
-    font-family: var(--font-base); /* Consistencia tipográfica */
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color var(--transition-default), box-shadow var(--transition-default);
+  font-family: var(--font-base); /* Consistencia tipográfica */
 }
 
 form input:focus,
 form textarea:focus {
-    border-color: var(--color-primary-light);
-    outline: none;
-    box-shadow: 0 4px 8px rgba(76, 110, 245, 0.2);
+  border-color: var(--color-primary-light);
+  outline: none;
+  box-shadow: 0 4px 8px rgba(76, 110, 245, 0.2);
 }
 
 form button {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 12px;
-    font-weight: bold;
-    transition: background-color var(--transition-default),
-                transform var(--transition-default);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 12px;
+  font-weight: bold;
+  transition: background-color var(--transition-default),
+              transform var(--transition-default);
 }
 
 form button:hover {
-    background-color: var(--color-primary-light);
-    transform: scale(1.05);
+  background-color: var(--color-primary-light);
+  transform: scale(1.05);
 }
 
 
 /*
-  =============================================================
-    7. PIE DE PÁGINA
-  =============================================================
+=============================================================
+  7. PIE DE PÁGINA
+=============================================================
 */
 footer {
-    /* Flexbox para centrar el contenido del footer */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* Flexbox para centrar el contenido del footer */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
 }
 
 footer a {
-    color: var(--color-primary-light);
-    text-decoration: underline;
-    font-weight: bold;
-    transition: color var(--transition-default);
+  color: var(--color-primary-light);
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color var(--transition-default);
 }
 
 footer a:hover {
-    color: var(--color-secondary);
+  color: var(--color-secondary);
 }
 
 
 /*
-  =============================================================
-    8. ELEMENTOS ESPECÍFICOS
-  =============================================================
+=============================================================
+  8. ELEMENTOS ESPECÍFICOS
+=============================================================
 */
 .card {
-    background-color: var(--color-white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: var(--spacing-default);
-    margin-bottom: var(--spacing-default);
-    transition: transform var(--transition-default), box-shadow var(--transition-default);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: var(--spacing-default);
+  margin-bottom: var(--spacing-default);
+  transition: transform var(--transition-default), box-shadow var(--transition-default);
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card h3 {
-    color: var(--color-primary);
-    margin-bottom: 10px;
+  color: var(--color-primary);
+  margin-bottom: 10px;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: var(--spacing-default) 0;
-    background-color: var(--color-white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-default) 0;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
 table th,
 table td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
 table th {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 table tr:hover {
-    background-color: #f4f4f4;
+  background-color: #f4f4f4;
 }
 
 
 /*
-  =============================================================
-    9. UTILIDADES EXTRA: POSICIONAMIENTO, FLEX AVANZADO, ENTRE OTROS
-  =============================================================
+=============================================================
+  9. UTILIDADES: POSICIONAMIENTO, FLEX AVANZADO, ENTRE OTROS
+=============================================================
 */
 
 /* Clases de posicionamiento */
 .position-relative {
-    position: relative;
+  position: relative;
 }
 
 .position-absolute {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(20%, 20%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translate(20%, 20%);
 }
 
 .position-fixed {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
 }
 
 .z-index-high {
-    z-index: 9999;
+  z-index: 9999;
 }
 
 /* Clases de flex avanzadas */
 .flex-row {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 .flex-row-center {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .flex-column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .flex-wrap {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 .flex-space-between {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .flex-center-all {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Layout de dos columnas */
 .two-column-layout {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-    gap: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 2rem;
 }
 
 /* Tarjeta destacada con posición especial */
 .card.featured {
-    position: relative;
-    border: 2px solid var(--color-primary-light);
-    overflow: hidden;
+  position: relative;
+  border: 2px solid var(--color-primary-light);
+  overflow: hidden;
 }
 
 /* Etiqueta con posición absoluta dentro de la tarjeta */
 .card.featured::before {
-    content: "Destacado";
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: var(--color-primary-light);
-    color: var(--color-white);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    font-weight: bold;
+  content: "Destacado";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: var(--color-primary-light);
+  color: var(--color-white);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
 
 /*
-  =============================================================
-    10. MEDIA QUERIES AVANZADAS (RESPONSIVE DESIGN)
-  =============================================================
+=============================================================
+  10. MEDIA QUERIES AVANZADAS (RESPONSIVE DESIGN)
+=============================================================
 */
 
 /* 
-   - Extra small devices (max-width: 575px)
-   - Small devices (max-width: 768px)
-   - Medium devices (max-width: 992px)
-   - Large devices (max-width: 1200px)
+ - Extra small devices (max-width: 575px)
+ - Small devices (max-width: 768px)
+ - Medium devices (max-width: 992px)
+ - Large devices (max-width: 1200px)
 */
 
 /* Para dispositivos muy pequeños (<= 575px) */
 @media (max-width: 575px) {
-    .two-column-layout {
-        flex-direction: column;
-        gap: 1rem;
-    }
+  .two-column-layout {
+      flex-direction: column;
+      gap: 1rem;
+  }
 
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
+  nav ul {
+      flex-direction: column;
+      align-items: center;
+  }
 
-    nav ul li {
-        margin: 8px 0;
-    }
+  nav ul li {
+      margin: 8px 0;
+  }
 
-    nav ul li a {
-        padding: 8px 10px;
-    }
+  nav ul li a {
+      padding: 8px 10px;
+  }
 }
 
 /* Para pantallas hasta 768px */
 @media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
+  nav ul {
+      flex-direction: column;
+      align-items: center;
+  }
 
-    nav ul li {
-        margin: 10px 0;
-    }
+  nav ul li {
+      margin: 10px 0;
+  }
 
-    main {
-        width: 95%;
-        margin: 20px auto;
-    }
+  main {
+      width: 95%;
+      margin: 20px auto;
+  }
 
-    table {
-        font-size: 14px;
-    }
+  table {
+      font-size: 14px;
+  }
 
-    img {
-        margin: 10px 0;
-    }
+  img {
+      margin: 10px 0;
+  }
 
-    .two-column-layout {
-        flex-direction: column;
-        gap: 1rem;
-    }
+  .two-column-layout {
+      flex-direction: column;
+      gap: 1rem;
+  }
 }
 
 /* Para pantallas hasta 992px */
 @media (max-width: 992px) {
-    nav {
-        width: 95%;
-    }
+  nav {
+      width: 95%;
+  }
 
-    .flex-row,
-    .flex-wrap {
-        flex-direction: column;
-        align-items: center;
-    }
+  .flex-row,
+  .flex-wrap {
+      flex-direction: column;
+      align-items: center;
+  }
 
-    .two-column-layout {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        justify-content: center;
-    }
+  .two-column-layout {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+  }
 }
 
 /* Para pantallas hasta 1200px */
 @media (max-width: 1200px) {
-    nav {
-        width: 95%;
-    }
+  nav {
+      width: 95%;
+  }
 
-    .two-column-layout {
-        justify-content: space-between;
-    }
+  .two-column-layout {
+      justify-content: space-between;
+  }
 }
 
 /* 
-   Imagen responsiva con max-height para que no ocupe demasiado en pantallas pequeñitas.
+ Imagen responsiva con max-height para que no ocupe demasiado en pantallas pequeñitas.
 */
 @media (max-width: 576px) {
-    img.responsive-small {
-        max-height: 200px; /* Ajusta la altura máxima de la imagen */
-        object-fit: cover;
-    }
+  img.responsive-small {
+      max-height: 200px; /* Ajusta la altura máxima de la imagen */
+      object-fit: cover;
+  }
+}
+
+/*
+=============================================================
+  11. ANIMACIONES Y TRANSICIONES
+=============================================================
+*/
+
+ /* Animación de fadeIn */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(-20px); }
+  50% { opacity: 0.5; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.fadeIn {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animación de fadeOut */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.fadeOut {
+  animation: fadeOut 1s ease-in-out;
+}
+
+/* Animación de slideInLeft */
+@keyframes slideInLeft {
+  0% { transform: translateX(-100%); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.slideInLeft {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+/* Animación de slideOutRight */
+@keyframes slideOutRight {
+  0% { transform: translateX(0); opacity: 1; }
+  100% { transform: translateX(100%); opacity: 0; }
+}
+.slideOutRight {
+  animation: slideOutRight 0.8s ease-in;
+}
+
+/* Transición para hover suave en botones animados */
+.btn-animated {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn-animated:hover {
+  transform: scale(1.1);
+}
+
+/* Animación de rebote */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-15px);
+  }
+  60% {
+    transform: translateY(-7px);
+  }
+}
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+/* Animación de rotación */
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.rotate {
+  animation: rotate 2s linear infinite;
+}
+
+/* Efecto de desvanecimiento lento */
+.slow-fade {
+  animation: fadeIn 3s ease-in-out;
+}
+
+/*
+=============================================================
+  12. MODALES Y POP-UPS
+=============================================================
+*/
+
+ /* Modal Overlay styling */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+ /* Modal visible state */
+.modal-overlay.active {
+  display: flex;
+}
+
+ /* Modal container */
+.modal {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  width: 90%;
+  max-width: 500px;
+  padding: var(--spacing-default);
+  position: relative;
+  animation: fadeIn 0.5s ease-out;
+}
+
+ /* Modal header */
+.modal-header {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--color-primary);
+}
+
+ /* Modal body */
+.modal-body {
+  font-size: 1rem;
+  color: var(--color-text-base);
+  margin-bottom: 20px;
+}
+
+ /* Modal footer */
+.modal-footer {
+  text-align: right;
+}
+
+ /* Close button for modal */
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--color-text-alt);
+  transition: color 0.3s;
+}
+
+.modal-close:hover {
+  color: var(--color-primary);
+}
+
+ /* Additional modal animations */
+@keyframes modalZoomIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.modal.zoom-in {
+  animation: modalZoomIn 0.4s ease-in-out;
+}
+
+ /* Modal responsive adjustments */
+@media (max-width: 576px) {
+  .modal {
+    width: 95%;
+    padding: 15px;
+  }
+}
+
+ /* Fallback for older browsers */
+@supports not (display: grid) {
+  .modal {
+    margin: 20px;
+  }
+}
+
+/*
+=============================================================
+  13. TOOLTIP Y NOTIFICACIONES
+=============================================================
+*/
+
+ /* Estilos para tooltips */
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 140px;
+  background-color: var(--color-text-alt);
+  color: var(--color-white);
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 10;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+ /* Notificaciones tipo alerta */
+.notification {
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  color: var(--color-white);
+  font-weight: bold;
+  position: relative;
+  box-shadow: var(--box-shadow);
+}
+
+.notification.info {
+  background-color: #17a2b8;
+}
+
+.notification.success {
+  background-color: #28a745;
+}
+
+.notification.warning {
+  background-color: #ffc107;
+  color: var(--color-text-base);
+}
+
+.notification.error {
+  background-color: #dc3545;
+}
+
+ /* Botón para cerrar notificaciones */
+.notification .close-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+ /* Animación para notificaciones que desaparecen */
+@keyframes slideUp {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-20px); }
+}
+
+.notification.hide {
+  animation: slideUp 0.5s forwards;
+}
+
+ /* Ajustes responsivos para tooltips y notificaciones */
+@media (max-width: 576px) {
+  .tooltip .tooltip-text {
+    width: 120px;
+  }
+}
+
+/*
+=============================================================
+  14. GRID Y LAYOUTS
+=============================================================
+*/
+
+ /* Sistema de grid básico */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: var(--spacing-default);
+}
+
+.grid-item {
+  background-color: var(--color-white);
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform var(--transition-default);
+}
+
+.grid-item:hover {
+  transform: scale(1.05);
+}
+
+ /* Layout de área de grid */
+.grid-layout {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  grid-gap: 20px;
+}
+
+.grid-header {
+  grid-area: header;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 20px;
+}
+
+.grid-sidebar {
+  grid-area: sidebar;
+  background: var(--color-secondary);
+  padding: 20px;
+  border-radius: var(--border-radius);
+}
+
+.grid-main {
+  grid-area: main;
+  background: var(--color-white);
+  padding: 20px;
+  border-radius: var(--border-radius);
+}
+
+.grid-footer {
+  grid-area: footer;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 20px;
+  border-radius: var(--border-radius);
+}
+
+ /* Responsive grid adjustments */
+@media (max-width: 768px) {
+  .grid-layout {
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+  }
+}
+
+ /* Utilidades de grid */
+.grid-gap-small {
+  gap: 10px;
+}
+
+.grid-gap-large {
+  gap: 30px;
+}
+
+/*
+=============================================================
+  15. ESTILOS DE TABLAS AVANZADAS
+=============================================================
+*/
+
+ /* Tabla con estilos avanzados */
+.table-advanced {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--spacing-default) 0;
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+}
+
+.table-advanced th, .table-advanced td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.table-advanced th {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.table-advanced tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table-advanced tr:hover {
+  background-color: #f1f1f1;
+}
+
+ /* Tabla responsive */
+.table-responsive {
+  overflow-x: auto;
+}
+
+ /* Estilo para tablas con zebra stripes */
+.table-zebra tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+ /* Estilo para tablas condensadas */
+.table-condensed th, .table-condensed td {
+  padding: 8px;
+}
+
+ /* Borde doble en tablas */
+.table-double-border {
+  border: 2px double #ccc;
+}
+
+ /* Efecto hover para filas de tabla avanzada */
+.table-advanced tr:hover {
+  background-color: #e9e9e9;
+}
+
+ /* Cabecera fija para tablas largas */
+.table-fixed-header {
+  position: relative;
+}
+
+.table-fixed-header thead {
+  position: sticky;
+  top: 0;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+ /* Estilos para celdas destacadas */
+.table-highlight td {
+  background-color: #fcfcfc;
+  font-weight: bold;
+}
+
+ /* Ajustes responsivos para tablas avanzadas */
+@media (max-width: 768px) {
+  .table-advanced, .table-responsive {
+    font-size: 12px;
+  }
+}
+
+/*
+=============================================================
+  16. CARRUSEL Y DESLIZADORES
+=============================================================
+*/
+
+ /* Contenedor carrusel */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+ /* Pista de carrusel */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+ /* Artículo del carrusel */
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+ /* Botones de navegación en carrusel */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: var(--color-white);
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1010;
+}
+
+.carousel-nav.prev {
+  left: 10px;
+}
+
+.carousel-nav.next {
+  right: 10px;
+}
+
+ /* Indicadores de carrusel */
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-indicators button.active {
+  background: var(--color-primary);
+}
+
+ /* Ajustes responsivos para carrusel */
+@media (max-width: 576px) {
+  .carousel {
+    max-width: 100%;
+  }
+}
+
+/*
+=============================================================
+  17. TABS Y ACORDEONES
+=============================================================
+*/
+
+ /* Contenedor de pestañas */
+.tabs {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+ /* Encabezados de pestañas */
+.tabs-header {
+  display: flex;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.tabs-header button {
+  flex: 1;
+  padding: 10px;
+  background: var(--color-secondary);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.tabs-header button.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+ /* Contenido de la pestaña */
+.tabs-content {
+  padding: 20px;
+  background: var(--color-white);
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+
+ /* Contenedor acordeón */
+.accordion {
+  width: 100%;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #ddd;
+}
+
+.accordion-header {
+  padding: 15px;
+  background: var(--color-secondary);
+  cursor: pointer;
+  position: relative;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.accordion-header:hover {
+  background: var(--color-primary-light);
+  color: var(--color-white);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  background: var(--color-white);
+  padding: 0 15px;
+}
+
+.accordion-content.active {
+  padding: 15px;
+  max-height: 200px;
+}
+
+ /* Icono para acordeón */
+.accordion-header::after {
+  content: '+';
+  position: absolute;
+  right: 20px;
+  font-size: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.accordion-header.active::after {
+  content: '-';
+  transform: rotate(180deg);
+}
+
+/*
+=============================================================
+  18. ESTILOS DE FORMULARIOS AVANZADOS
+=============================================================
+*/
+
+ /* Estilos avanzados para formularios */
+.form-advanced {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding: var(--spacing-default);
+  background: var(--color-white);
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+ /* Campo de entrada con ícono */
+.input-icon {
+  position: relative;
+}
+
+.input-icon input {
+  padding-left: 40px;
+}
+
+.input-icon .icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: var(--color-text-alt);
+}
+
+ /* Select personalizado */
+.select-custom {
+  position: relative;
+}
+
+.select-custom select {
+  appearance: none;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  background: var(--color-white);
+}
+
+.select-custom::after {
+  content: '▼';
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-alt);
+}
+
+ /* Estilos para checkbox personalizados */
+.checkbox-custom {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-custom input {
+  display: none;
+}
+
+.checkbox-custom label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.checkbox-custom label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: var(--color-white);
+}
+
+.checkbox-custom input:checked + label::before {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+/* Cierre sección 18 */
+
+/*
+=============================================================
+  19. ESTILOS DE ICONOS E IMÁGENES
+=============================================================
+*/
+
+ /* Estilos para iconos */
+.icon {
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  transition: color 0.3s;
+}
+
+.icon:hover {
+  color: var(--color-primary-light);
+}
+
+ /* Iconos en botones */
+.btn .icon {
+  margin-right: 8px;
+}
+
+ /* Imágenes redondeadas */
+.img-rounded {
+  border-radius: 50%;
+}
+
+ /* Efectos para imágenes */
+.img-effect {
+  transition: filter 0.3s ease;
+}
+
+.img-effect:hover {
+  filter: brightness(0.8);
+}
+
+ /* Bordes decorativos para imágenes */
+.img-border {
+  border: 5px solid var(--color-primary);
+  border-radius: var(--border-radius);
+}
+
+ /* Galería de imágenes */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery img {
+  flex: 1 1 calc(33.333% - 10px);
+  max-width: calc(33.333% - 10px);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  transition: transform 0.3s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+ /* Efectos de zoom para imágenes */
+.zoom-image {
+  overflow: hidden;
+  position: relative;
+}
+
+.zoom-image img {
+  transition: transform 0.5s ease;
+}
+
+.zoom-image:hover img {
+  transform: scale(1.1);
+}
+
+ /* Estilos responsivos para imágenes e iconos */
+@media (max-width: 576px) {
+  .gallery img {
+    flex: 1 1 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+}
+
+/*
+=============================================================
+  20. ESTILOS DE FOOTER EXTENDIDO Y COPYRIGHT
+=============================================================
+*/
+
+ /* Footer extendido */
+.footer-extended {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+ /* Sección de links en el footer */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--color-primary-light);
+}
+
+ /* Sección de información de copyright */
+.footer-copy {
+  font-size: 0.9rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 15px;
+  width: 100%;
+}
+
+ /* Diseño para redes sociales en el footer */
+.footer-social {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.footer-social a {
+  color: var(--color-white);
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: var(--color-primary-light);
+}
+
+ /* Layout responsivo para footer extendido */
+@media (max-width: 768px) {
+  .footer-extended {
+    padding: 20px 10px;
+  }
+  .footer-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+ /* Estilos adicionales para secciones internas del footer */
+.footer-section {
+  margin: 10px 0;
+  text-align: center;
+}
+
+ /* Fuente y espaciado para créditos */
+.footer-credits {
+  font-size: 0.8rem;
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.7);
 }
